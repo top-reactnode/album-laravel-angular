@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>Photos Album</span>
+</mat-toolbar>
+
+<mat-divider></mat-divider>
+
+<div fxLayout="row wrap" fxLayoutAlign="space-around stretch" >
+  <app-post *ngFor="let p of posts" [post]="p"></app-post>
+</div>
+
+<button mat-fab color="primary" class="float-button" (click)="openDialog()">
+  <mat-icon>add</mat-icon>
+</button>

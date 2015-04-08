@@ -1,0 +1,48 @@
+<div fxLayout="column" fxLayoutAlign="space-around left">
+  <div fxLaylout="row" fxLayoutAlign="space-between">
+    <mat-form-field fxFlex="50">
+      <input matInput placeholder="Your name" [(ngModel)]="dados.post.name">
+      <mat-hint>Type your name</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="40">
+        <input matInput placeholder="Your email"  [(ngModel)]="dados.post.email">
+        <mat-hint>Type your email</mat-hint>
+      </mat-form-field>
+  </div>
+
+  <div fxLaylout="row" fxLayoutAlign="space-between">
+      <mat-form-field fxFlex="50">
+        <input matInput placeholder="Title of the message"  
+               [(ngModel)]="dados.post.title">
+      </mat-form-field>
+  
+      <mat-form-field fxFlex="40">
+          <input matInput placeholder="Subtitle of the message"  
+                 [(ngModel)]="dados.post.subtitle">
+      </mat-form-field>
+  </div>  
+  <mat-form-field>
+    <textarea matInput placeholder="Type the content of your message "  
+              [(ngModel)]="dados.post.message"></textarea>
+  </mat-form-field>
+</div>
+
+<input type="file" style="display: none;" 
+      (change)="changedfile($event)" #fileinput>
+
+<button mat-stroked-button color="primary" (click)="fileinput.click()">
+  <mat-icon>add_a_photo</mat-icon>
+  Add a Photo
+</button>
+<p *ngIf="filename!=''">
+  <strong>File: </strong>{{filename}}
+  <mat-icon color="primary">done</mat-icon>
+</p>
+
+<br><br>
+
+<div style="text-align: center;">
+  <button mat-button color="primary" (click)="save()">OK</button>
+  <button mat-button color="warn" (click)="cancel()">Cancel</button>
+</div>
